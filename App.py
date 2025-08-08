@@ -2,6 +2,7 @@
 import pygame
 from Game import Game
 from Agent import Agent
+from Helper import plot
 
 
 # Pygame 초기화
@@ -15,16 +16,6 @@ SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 CLOCK = pygame.time.Clock()
 pygame.display.set_caption("Snake Game")
 
-'''
-myGame = Game(
-        clock=CLOCK,
-        screen_width=SCREEN_WIDTH, 
-        screen_height=SCREEN_HEIGHT, 
-        cell_size=CELL_SIZE, 
-        screen=SCREEN
-    )
-    myGame.run()
-'''
 
 def train(pre_trained_weight = None):
     agent = Agent()
@@ -36,6 +27,11 @@ def train(pre_trained_weight = None):
         screen=SCREEN
     )
     myGame.reset_game()
+
+    plot_scores = []
+    plot_mean_scores = []
+    total_score = 0
+
 
     if pre_trained_weight != None:
         agent.load_model(pre_trained_weight)
@@ -51,42 +47,43 @@ def train(pre_trained_weight = None):
         # 3. 에이전트의 행동 실행 및 결과 얻기
         # play_step 함수 내부에서 화면 그리기, clock.tick(), 이벤트 처리를 모두 수행해야 함.
         reward, done, score = myGame.play_step(action=final_move, n_games=agent.n_games)
+        new_state = agent.get_state(myGame)
+
         total_reward += reward
 
-        new_state = agent.get_state(myGame)
 
         # 4. 짧은 메모리 학습
         # max(0, reward) 로직을 사용하지 않아야 함
         agent.train_short_memory(old_state, final_move, reward, new_state, done)
         
-
         # 5. 경험 저장
         agent.remember(old_state, final_move, reward, new_state, done)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            myGame.draw()
-            myGame.CLOCK.tick(120)
-
         if done:
-            print('Game', agent.n_games, 'Score', score, 'Total Reward:', total_reward)
-
             # 6. 긴 메모리(경험 재생) 학습
             myGame.reset_game()
             agent.n_games += 1
             agent.train_long_memory()
             total_reward = 0
 
+            print('Game', agent.n_games, 'Score', score, 'Total Reward:', total_reward)
+
             # 7. 최고 기록(점수 기준) 업데이트
             if score > agent.record:
+                # 최고 점수 기록 시 최종 보상도 함께 저장
                 agent.record = score
-                agent.reward = reward # 최고 점수 기록 시 최종 보상도 함께 저장
+                # agent.reward = reward        
 
-                # cnt 변수는 필요 없음. n_games로 대체 가능
-                if agent.n_games % 500 == 0:
+                if agent.n_games % 100 == 0:
                     agent.model.save(agent.n_games)
+
+
+            plot_scores.append(score)  
+            total_score += score
+            mean_score = total_score / agent.n_games
+            plot_mean_scores.append(mean_score)
+            plot(plot_scores, plot_mean_scores)   
+            
 
             
 

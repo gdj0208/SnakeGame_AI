@@ -3,18 +3,19 @@ import random
 from collections import deque
 from Model import Snake_AI, Trainer
 import os
+import numpy as np
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
-LR = 5e-7
+LR = 0.001
 
 class Agent:
     def __init__(self):
         self.n_games = 0
-        self.epsilon = 0 # 학습 초기에는 1, 점차 0으로 줄여나감
+        self.epsilon = 0
         self.gamma = 0.9 # 할인율
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Snake_AI(13, 256, 3) # 입력 11차원, 은닉층 256, 출력 3차원
+        self.model = Snake_AI(11, 256, 3) # 입력 11차원, 은닉층 256, 출력 3차원
         self.trainer = Trainer(self.model, lr=LR, gamma=self.gamma)
         self.record = 0
         self.reward = 0
@@ -67,13 +68,10 @@ class Agent:
             dx < 0,         # [7] 먹이가 뱀 머리 왼쪽에 있는지 여부
             dx > 0,         # [8] 먹이가 뱀 머리 오른쪽에 있는지 여부
             dy < 0,         # [9] 먹이가 뱀 머리 위에 있는지 여부
-            dy > 0,          # [10] 먹이가 뱀 머리 아래에 있는지 여부
-            
-            # 뱀 머리와 먹이의 상대적 거리
-            dx,  # 먹이까지의 x거리
-            dy   # 먹이까지의 y거리
+            dy > 0          # [10] 먹이가 뱀 머리 아래에 있는지 여부
         ]
-        return state
+        # return state
+        return np.array(state, dtype=int)
 
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
@@ -92,9 +90,7 @@ class Agent:
 
     def get_action(self, state, n_games):
         # 엡실론-그리디 전략을 위한 엡실론값 설정
-        self.epsilon = 90 - (n_games-1500) // 100
-        # print(self.epsilon)
-        # self.epsilon = 80 - self.n_games
+        self.epsilon = 80 - n_games
         
         # 직진, 좌회전, 우회전
         final_move = [0, 0, 0]

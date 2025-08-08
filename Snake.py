@@ -8,7 +8,7 @@ class Snake:
         self.SCREEN_HEIGHT = screen_height
         self.CELL_SIZE = cell_size
 
-        self.body = [(200, 100), (180, 100), (160, 100), (140, 100), (120, 100)] # 초기 몸통
+        self.body = [(200, 100), (180, 100), (160, 100)] # 초기 몸통
         self.direction = (self.CELL_SIZE, 0) # 오른쪽으로 시작
 
     def move(self):
@@ -46,19 +46,6 @@ class Snake:
         # 반대 방향으로 이동하는 것 방지
         '''if (new_dir[0] * -1, new_dir[1] * -1) != self.direction:
             self.direction = new_dir'''
-
-    def check_wall_collision(self, head=None):
-        # 벽 충돌
-        if (head[0] >= self.SCREEN_WIDTH or head[0] < 0 or
-                head[1] >= self.SCREEN_HEIGHT or head[1] < 0):
-            return True
-        return False
-    
-    def check_snake_collision(self, head=None) : 
-        # 몸통 충돌
-        if head in self.body[1:]:
-            return True
-        return False
 
     def check_collision(self, head=None):
         if head == None:

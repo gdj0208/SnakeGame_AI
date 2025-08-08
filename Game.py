@@ -7,6 +7,9 @@ from Snake import Snake
 from Agent import Agent
 import math
 
+REWARD_FOOD = 10
+REWARD_DEATH = -10
+REWARD_STEP = 0
 
 class Game():
     def __init__(self, clock, screen_width, screen_height, cell_size, screen):   
@@ -81,6 +84,12 @@ class Game():
             pygame.display.flip()
 
     def play_step(self, action, n_games):
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        
         self.frame_iteration += 1
         
         # 1. AI 행동에 따라 뱀의 방향 변경
@@ -92,57 +101,10 @@ class Game():
         cur_head = self.snake.body[0]
         game_over = False
 
-        # 3. 보상 체계 설정 (커리큘럼 학습)
-        # n_games 값에 따라 보상 가중치를 동적으로 변경합니다.
-        # 이 값을 조절하여 학습 속도와 전략을 변경할 수 있습니다.
-        if n_games < 2000:
-            # Phase 1: 초반 학습 (먹이 찾기 집중)
-            # 죽음 페널티가 상대적으로 작아 탐험을 유도합니다.
-            REWARD_FOOD = 5000
-            REWARD_WALL_DEATH = -50
-            REWARD_SELF_DEATH = -150
-            REWARD_STEP = -0.5
-        elif n_games < 5000:
-            # Phase 2: 안정화 단계 (죽음 회피 집중)
-            # 죽음 페널티를 크게 높여 안전한 플레이를 유도합니다.
-            REWARD_FOOD = 500
-            REWARD_WALL_DEATH = -400
-            REWARD_SELF_DEATH = -250
-            REWARD_STEP = -0.1
-        else:
-            # Phase 3: 심화 학습 (최적화)
-            # 죽음 페널티를 더 높여 효율적인 플레이를 완성합니다.
-            REWARD_FOOD = 250
-            REWARD_WALL_DEATH = -1000
-            REWARD_SELF_DEATH = -1000
-            REWARD_STEP = 0
-
-        # 4. 충돌 감지 및 보상 적용
-        # 뱀의 몸통과 벽 충돌 체크
-        prev_dist = math.hypot(prev_head[0] - self.food.position[0], prev_head[1] - self.food.position[1])
-        cur_dist = math.hypot(cur_head[0] - self.food.position[0], cur_head[1] - self.food.position[1])
-        REWARD_DIST = 0
-        if prev_dist < cur_dist :
-            REWARD_DIST += 10
-        elif prev_dist > cur_dist :
-            REWARD_DIST -= 7
-
-        '''if self.snake.check_wall_collision(self.snake.body[0]) :'''
-        if self.snake.check_wall_collision(self.snake.body[0]) or self.frame_iteration > 100 * len(self.snake.body) :
+        # 3. 충돌 감지
+        if self.snake.check_collision(self.snake.body[0]) or self.frame_iteration > 100 * len(self.snake.body) :
             game_over = True
-            return REWARD_WALL_DEATH, game_over, self.score
-        
-        '''if self.snake.check_snake_collision(self.snake.body[0]) :'''
-        if self.snake.check_snake_collision(self.snake.body[0]) or self.frame_iteration > 100 * len(self.snake.body):
-            game_over = True
-            return REWARD_SELF_DEATH, game_over, self.score
-
-
-        '''if self.snake.check_collision(self.snake.body[0]) or self.frame_iteration > 100 * len(self.snake.body):
-            game_over = True
-            reward += REWARD_DEATH
-            return reward, game_over, self.score'''
-
+            return REWARD_DEATH, game_over, self.score
 
         # 5. 먹이 섭취 및 보상 적용
         if self.snake.body[0] == self.food.position:
@@ -151,10 +113,11 @@ class Game():
             self.food.spawn()
             return REWARD_FOOD, game_over, self.score
         
+
         # 6. 한 칸 이동 페널티 적용 (먹이를 먹거나 죽지 않았을 때)
         self.draw()
         self.CLOCK.tick(120)
-        return REWARD_STEP + REWARD_DIST, game_over, self.score
+        return REWARD_STEP, game_over, self.score
 
     def run(self) :
         self.reset_game()
