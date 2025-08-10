@@ -31,13 +31,14 @@ def train(pre_trained_weight = None):
     plot_scores = []
     plot_mean_scores = []
     total_score = 0
+    run = True
 
 
     if pre_trained_weight != None:
         agent.load_model(pre_trained_weight)
 
     total_reward = 0
-    while True:
+    while run:
         # 1. 현재 상태 가져오기
         old_state = agent.get_state(myGame)
 
@@ -53,7 +54,6 @@ def train(pre_trained_weight = None):
 
 
         # 4. 짧은 메모리 학습
-        # max(0, reward) 로직을 사용하지 않아야 함
         agent.train_short_memory(old_state, final_move, reward, new_state, done)
         
         # 5. 경험 저장
@@ -74,9 +74,12 @@ def train(pre_trained_weight = None):
                 agent.record = score
                 # agent.reward = reward        
 
-                if agent.n_games % 100 == 0:
-                    agent.model.save(agent.n_games)
+            if agent.n_games % 200 == 0:
+                agent.model.save(agent.n_games)
 
+            # 학습 종료
+            if agent.n_games >= 1000 :
+                run = False
 
             plot_scores.append(score)  
             total_score += score
@@ -87,4 +90,12 @@ def train(pre_trained_weight = None):
 
             
 
-train()
+# train()
+myGame = Game(
+        clock=CLOCK,
+        screen_width=SCREEN_WIDTH, 
+        screen_height=SCREEN_HEIGHT, 
+        cell_size=CELL_SIZE, 
+        screen=SCREEN
+    )
+myGame.run()

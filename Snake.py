@@ -42,10 +42,11 @@ class Snake:
                 self.direction = (0, -20)
             elif self.direction[0] == 0 and self.direction[1] == -20:
                 self.direction = (20, 0)
-        
+
+    def change_direction_by_key(self, new_dir):
         # 반대 방향으로 이동하는 것 방지
-        '''if (new_dir[0] * -1, new_dir[1] * -1) != self.direction:
-            self.direction = new_dir'''
+        if (new_dir[0] * -1, new_dir[1] * -1) != self.direction:
+            self.direction = new_dir
 
     def check_collision(self, head=None):
         if head == None:

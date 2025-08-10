@@ -113,8 +113,6 @@ class Game():
             self.food.spawn()
             return REWARD_FOOD, game_over, self.score
         
-
-        # 6. 한 칸 이동 페널티 적용 (먹이를 먹거나 죽지 않았을 때)
         self.draw()
         self.CLOCK.tick(120)
         return REWARD_STEP, game_over, self.score
@@ -132,13 +130,13 @@ class Game():
                 elif event.type == pygame.KEYDOWN:
                     # 키 입력에 따라 뱀 방향 변경
                     if event.key == pygame.K_UP:
-                        self.snake.change_direction((0, -self.CELL_SIZE))
+                        self.snake.change_direction_by_key((0, -self.CELL_SIZE))
                     elif event.key == pygame.K_DOWN:
-                        self.snake.change_direction((0, self.CELL_SIZE))
+                        self.snake.change_direction_by_key((0, self.CELL_SIZE))
                     elif event.key == pygame.K_LEFT:
-                        self.snake.change_direction((-self.CELL_SIZE, 0))
+                        self.snake.change_direction_by_key((-self.CELL_SIZE, 0))
                     elif event.key == pygame.K_RIGHT:
-                        self.snake.change_direction((self.CELL_SIZE, 0))
+                        self.snake.change_direction_by_key((self.CELL_SIZE, 0))
             
 
             # 2. 게임 상태 업데이트 (뱀 이동, 충돌 감지)

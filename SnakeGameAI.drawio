@@ -1,0 +1,130 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Whale/4.33.325.15 Safari/537.36" version="28.0.4">
+  <diagram name="Page-1" id="DK0lz_eZ6AG6WsTlh5H9">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JErV9txCRoknpUmv9h3D-7" value="Game.py" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="-63" width="245" height="246" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-8" value="SCREEN_WIDTH (App.py)&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SCREEN_HEIGHT&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;CELL_SIZE&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;SCREEN&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;CLOCK (App.py)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;score&lt;/div&gt;&lt;div&gt;snake&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 게임 속 스네이크&lt;/div&gt;&lt;div&gt;food&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크가 먹을 먹이&lt;/div&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-7">
+          <mxGeometry y="26" width="245" height="157" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-9" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-7">
+          <mxGeometry y="183" width="245" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-10" value="reset_game(&amp;nbsp; )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# score, snake, food 초기화&lt;div&gt;game_over( ) &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 게임 오버 처리 및&amp;nbsp; 화면 출력&amp;nbsp;&lt;/div&gt;&lt;div&gt;run( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 게임 실행&lt;/div&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-7">
+          <mxGeometry y="191" width="245" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-11" value="Food.py" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-48" y="224" width="194" height="153" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-12" value="SCREEN_WIDTH (App.py)&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SCREEN_HEIGHT&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;CELL_SIZE&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;position&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 먹이의 위치&lt;/div&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-11">
+          <mxGeometry y="26" width="194" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-13" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-11">
+          <mxGeometry y="99" width="194" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-14" value="spawn( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 먹이 리스폰&lt;div&gt;draw( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 먹이 게임 화면에 그리기&amp;nbsp;&lt;/div&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-11">
+          <mxGeometry y="107" width="194" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-15" value="Snake.py" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="170" y="224" width="302" height="231" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-16" value="SCREEN_WIDTH (App.py)&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SCREEN_HEIGHT&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;CELL_SIZE&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(App.py)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;body&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크의 위치 정보들&lt;/span&gt;&lt;/div&gt;&lt;div&gt;direction&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크의 이동 벡터&lt;/div&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-15">
+          <mxGeometry y="26" width="302" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-17" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-15">
+          <mxGeometry y="117" width="302" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-18" value="move( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크의 이동 grow()와 body.pop()으로 구성&lt;div&gt;grow( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크 이동 벡터로 머리 하나 추가&lt;/div&gt;&lt;div&gt;change_direction(new_dir)&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 이동 벡터 변환&lt;/div&gt;&lt;div&gt;check_collision( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크가 벽 또는 몸통과 충돌하는지 탐지&lt;/div&gt;&lt;div&gt;draw(&amp;nbsp; )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 스네이크 게임 화면에 그리기&lt;/div&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="JErV9txCRoknpUmv9h3D-15">
+          <mxGeometry y="125" width="302" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-21" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="JErV9txCRoknpUmv9h3D-11" target="JErV9txCRoknpUmv9h3D-7">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="66" y="128" as="sourcePoint" />
+            <mxPoint x="226" y="128" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-25" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="JErV9txCRoknpUmv9h3D-15" target="JErV9txCRoknpUmv9h3D-7">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="120" y="244" as="sourcePoint" />
+            <mxPoint x="139" y="203" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-26" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="JErV9txCRoknpUmv9h3D-7" target="JErV9txCRoknpUmv9h3D-27">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="145" y="224" as="sourcePoint" />
+            <mxPoint x="182.50000000000023" y="-114" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-27" value="&lt;span style=&quot;color: rgb(51, 51, 51);&quot;&gt;App.py&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-115" y="-294" width="204" height="164" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-28" value="&lt;span style=&quot;color: rgb(51, 51, 51);&quot;&gt;SCREEN_WIDTH&lt;/span&gt;&lt;span style=&quot;color: rgb(51, 51, 51); white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;div style=&quot;color: rgb(51, 51, 51);&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SCREEN_HEIGHT&amp;nbsp;&lt;/span&gt;&lt;div&gt;CELL_SIZE&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 화면 픽셀 크기&lt;/div&gt;&lt;div&gt;SCREEN&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;CLOCK&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;GAME&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-27">
+          <mxGeometry y="26" width="204" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-29" value="" style="line;strokeWidth=1;fillColor=#f5f5f5;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-27">
+          <mxGeometry y="130" width="204" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-30" value="train( )&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/span&gt;# 게임 속 AI 학습" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-27">
+          <mxGeometry y="138" width="204" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-31" value="Agent.py" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-388" y="-63" width="273" height="254" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-32" value="n_games&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/span&gt;# 게임 성공 횟수&lt;div&gt;epsilon&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 엡실론 계수&lt;/div&gt;&lt;div&gt;gamma&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;# 할인율&lt;/div&gt;&lt;div&gt;memory&lt;/div&gt;&lt;div&gt;model&lt;/div&gt;&lt;div&gt;trainer&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-31">
+          <mxGeometry y="26" width="273" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-33" value="" style="line;strokeWidth=1;fillColor=#f5f5f5;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-31">
+          <mxGeometry y="121" width="273" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-34" value="get_state(game)&lt;div&gt;get_action(state, n_games)&lt;br&gt;&lt;div&gt;remember(state, action, reward, next_state, done)&lt;/div&gt;&lt;div&gt;train_long_memory( )&lt;/div&gt;&lt;div&gt;train_short_memory(&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;state, action, reward, next_state, done&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;load_model(file_name)&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-31">
+          <mxGeometry y="129" width="273" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-35" value="Snake_AI" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-404" y="220" width="113" height="119" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-36" value="&lt;div&gt;linear1&lt;/div&gt;&lt;div&gt;linear2&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-35">
+          <mxGeometry y="26" width="113" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-37" value="" style="line;strokeWidth=1;fillColor=#f5f5f5;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-35">
+          <mxGeometry y="67" width="113" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-38" value="forward(x)&lt;div&gt;save(file_name)&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-35">
+          <mxGeometry y="75" width="113" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-39" value="Trainer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-276" y="220" width="178" height="171" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-40" value="&lt;div&gt;lr&lt;/div&gt;&lt;div&gt;gamma&lt;/div&gt;&lt;div&gt;model&lt;/div&gt;&lt;div&gt;optimizer&lt;/div&gt;&lt;div&gt;criterion&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-39">
+          <mxGeometry y="26" width="178" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-41" value="" style="line;strokeWidth=1;fillColor=#f5f5f5;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-39">
+          <mxGeometry y="119" width="178" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-42" value="train_step(state, action, reward, next_state, done)" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" vertex="1" parent="JErV9txCRoknpUmv9h3D-39">
+          <mxGeometry y="127" width="178" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-43" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="JErV9txCRoknpUmv9h3D-35" target="JErV9txCRoknpUmv9h3D-31">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="43" y="182" as="sourcePoint" />
+            <mxPoint x="43" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-44" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="JErV9txCRoknpUmv9h3D-39" target="JErV9txCRoknpUmv9h3D-31">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-265" y="242" as="sourcePoint" />
+            <mxPoint x="-265" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JErV9txCRoknpUmv9h3D-45" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;fillColor=#f5f5f5;strokeColor=#666666;" edge="1" parent="1" source="JErV9txCRoknpUmv9h3D-31" target="JErV9txCRoknpUmv9h3D-27">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="232" y="-23" as="sourcePoint" />
+            <mxPoint x="118" y="-115" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
