@@ -12,13 +12,14 @@ REWARD_DEATH = -10
 REWARD_STEP = 0
 
 class Game():
-    def __init__(self, clock, screen_width, screen_height, cell_size, screen):   
+    def __init__(self, clock, screen_width, screen_height, cell_size, screen, agent=None):   
         self.CLOCK = clock
         self.SCREEN_WIDTH = screen_width
         self.SCREEN_HEIGHT = screen_height
         self.CELL_SIZE = cell_size
         self.SCREEN = screen
         self.point = namedtuple('Point', 'x, y')
+        self.agent = agent
 
     def reset_game(self):
         # 1. 게임 상태 초기화
@@ -84,7 +85,6 @@ class Game():
             pygame.display.flip()
 
     def play_step(self, action, n_games):
-        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -122,26 +122,41 @@ class Game():
         self.CLOCK.tick(120)
         return REWARD_STEP, game_over, self.score
 
-    def run(self) :
+    def run(self, agent=None) :
         self.reset_game()
 
         # Game 클래스의 run 메서드 내부
         running = True
         while running:
-            # 1. 이벤트 처리
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-                elif event.type == pygame.KEYDOWN:
-                    # 키 입력에 따라 뱀 방향 변경
-                    if event.key == pygame.K_UP:
-                        self.snake.change_direction_by_key((0, -self.CELL_SIZE))
-                    elif event.key == pygame.K_DOWN:
-                        self.snake.change_direction_by_key((0, self.CELL_SIZE))
-                    elif event.key == pygame.K_LEFT:
-                        self.snake.change_direction_by_key((-self.CELL_SIZE, 0))
-                    elif event.key == pygame.K_RIGHT:
-                        self.snake.change_direction_by_key((self.CELL_SIZE, 0))
+            # AI 에이전트가 게임을 플레이하는 경우
+            if agent is not None:
+                action = agent.get_action(agent.get_state(self))
+                self.snake.change_direction(action)
+
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                    elif event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            self.game_over()
+            # 직접 게임하는 경우
+            else :
+                # 1. 이벤트 처리
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                    elif event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            self.game_over()
+                        # 키 입력에 따라 뱀 방향 변경
+                        elif event.key == pygame.K_UP:
+                            self.snake.change_direction_by_key((0, -self.CELL_SIZE))
+                        elif event.key == pygame.K_DOWN:
+                            self.snake.change_direction_by_key((0, self.CELL_SIZE))
+                        elif event.key == pygame.K_LEFT:
+                            self.snake.change_direction_by_key((-self.CELL_SIZE, 0))
+                        elif event.key == pygame.K_RIGHT:
+                            self.snake.change_direction_by_key((self.CELL_SIZE, 0))
             
 
             # 2. 게임 상태 업데이트 (뱀 이동, 충돌 감지)

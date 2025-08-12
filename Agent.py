@@ -89,7 +89,7 @@ class Agent:
     def train_short_memory(self, state, action, reward, next_state, done):
         self.trainer.train_step(state, action, reward, next_state, done)
 
-    def get_action(self, state, n_games):
+    def get_action(self, state, n_games=80):
         # 엡실론-그리디 전략을 위한 엡실론값 설정
         self.epsilon = 80 - n_games
         
