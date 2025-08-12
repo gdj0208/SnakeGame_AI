@@ -15,12 +15,45 @@ class Snake_AI(nn.Module) :
         x = self.linear2(x)
         return x
     
-    def save(self, file_name):
+    def save(self, file_name, lr=0):
         model_folder_path = './weights'
         if not os.path.exists(model_folder_path):
             os.makedirs(model_folder_path)
         
-        file_name = os.path.join(model_folder_path, "ver_"+str(file_name))
+        file_name = os.path.join(model_folder_path,"lr_" +str(lr) +"_ver_"+str(file_name))
+        torch.save(self.state_dict(), file_name+".pth")
+
+class Snake_Advanced_AI(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size, dropout_p=0.3):
+        super().__init__()
+        self.linear1 = nn.Linear(input_size, hidden_size)
+        self.ㅣn1 = nn.LayerNorm(hidden_size)
+        self.dropout1 = nn.Dropout(dropout_p)
+
+        self.linear2 = nn.Linear(hidden_size, hidden_size)
+        self.ln2 = nn.LayerNorm(hidden_size)
+        self.dropout2 = nn.Dropout(dropout_p)
+
+        self.linear3 = nn.Linear(hidden_size, output_size)
+
+    def forward(self, x):
+        # 입력이 1차원([11])이면 2차원([1,11])으로 변환
+        if x.dim() == 1:
+            x = x.unsqueeze(0)
+        x = F.relu(self.ㅣn1(self.linear1(x)))
+        x = self.dropout1(x)
+        x = F.relu(self.ln2(self.linear2(x)))
+        x = self.dropout2(x)
+        x = self.linear3(x)
+        return x
+
+
+    def save(self, file_name, lr=0):
+        model_folder_path = './weights'
+        if not os.path.exists(model_folder_path):
+            os.makedirs(model_folder_path)
+        
+        file_name = os.path.join(model_folder_path,"lr_" +str(lr) +"_ver_"+str(file_name))
         torch.save(self.state_dict(), file_name+".pth")
 
 class Trainer:
@@ -58,5 +91,9 @@ class Trainer:
         # 역전파
         self.optimizer.zero_grad()
         loss = self.criterion(target, pred)
+        #print("Loss:", loss.item())
         loss.backward()
         self.optimizer.step()
+        
+        return loss.item()
+        

@@ -1,7 +1,7 @@
 import torch
 import random
 from collections import deque
-from Model import Snake_AI, Trainer
+from Model import Snake_AI, Trainer, Snake_Advanced_AI
 import os
 import numpy as np
 
@@ -16,6 +16,7 @@ class Agent:
         self.gamma = 0.9 # 할인율
         self.memory = deque(maxlen=MAX_MEMORY)
         self.model = Snake_AI(11, 256, 3) # 입력 11차원, 은닉층 256, 출력 3차원
+        # self.model = Snake_Advanced_AI(11, 256, 3)
         self.trainer = Trainer(self.model, lr=LR, gamma=self.gamma)
         self.record = 0
         self.reward = 0

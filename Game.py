@@ -110,7 +110,12 @@ class Game():
         if self.snake.body[0] == self.food.position:
             self.score += 1
             self.snake.grow()
-            self.food.spawn()
+
+            # 먹이가 뱀의 몸통에 겹치지 않도록 확인
+            while True:
+                self.food.spawn()
+                if self.food.position not in self.snake.body:
+                    break
             return REWARD_FOOD, game_over, self.score
         
         self.draw()

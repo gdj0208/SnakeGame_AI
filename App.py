@@ -2,7 +2,7 @@
 import pygame
 from Game import Game
 from Agent import Agent
-from Helper import plot
+from Helper import plot, show_final_score
 
 
 # Pygame 초기화
@@ -37,7 +37,8 @@ def train(pre_trained_weight = None):
     if pre_trained_weight != None:
         agent.load_model(pre_trained_weight)
 
-    total_reward = 0
+    loss = 0
+    cnt=0
     while run:
         # 1. 현재 상태 가져오기
         old_state = agent.get_state(myGame)
@@ -50,8 +51,8 @@ def train(pre_trained_weight = None):
         reward, done, score = myGame.play_step(action=final_move, n_games=agent.n_games)
         new_state = agent.get_state(myGame)
 
-        total_reward += reward
-
+        # loss += reward
+        cnt += 1
 
         # 4. 짧은 메모리 학습
         agent.train_short_memory(old_state, final_move, reward, new_state, done)
@@ -64,9 +65,10 @@ def train(pre_trained_weight = None):
             myGame.reset_game()
             agent.n_games += 1
             agent.train_long_memory()
-            total_reward = 0
 
-            print('Game', agent.n_games, 'Score', score, 'Total Reward:', total_reward)
+            print('Game', agent.n_games, 'Score', score, 'Loss:', loss/cnt)
+            loss = 0
+            cnt = 0
 
             # 7. 최고 기록(점수 기준) 업데이트
             if score > agent.record:
@@ -87,15 +89,8 @@ def train(pre_trained_weight = None):
             plot_mean_scores.append(mean_score)
             plot(plot_scores, plot_mean_scores)   
             
+    show_final_score(plot_scores, plot_mean_scores)
 
             
 
-# train()
-myGame = Game(
-        clock=CLOCK,
-        screen_width=SCREEN_WIDTH, 
-        screen_height=SCREEN_HEIGHT, 
-        cell_size=CELL_SIZE, 
-        screen=SCREEN
-    )
-myGame.run()
+train()

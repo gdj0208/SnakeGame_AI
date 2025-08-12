@@ -17,6 +17,7 @@ class Food:
         x = random.randrange(0, self.SCREEN_WIDTH // self.CELL_SIZE) * self.CELL_SIZE
         y = random.randrange(0, self.SCREEN_HEIGHT // self.CELL_SIZE) * self.CELL_SIZE
         self.position = (x, y)
+            
 
     def draw(self, surface):
         rect = pygame.Rect(self.position[0], self.position[1], self.CELL_SIZE, self.CELL_SIZE)
