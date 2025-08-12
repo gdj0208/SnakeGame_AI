@@ -166,7 +166,12 @@ class Game():
             if self.snake.body[0] == self.food.position:
                 self.score += 10
                 self.snake.grow() # 뱀 몸통 늘리기
-                self.food.spawn() # 새 먹이 생성
+
+                while True:
+                    self.food.spawn()
+                    if self.food.position not in self.snake.body:
+                        break
+                    print("bug solved!")
 
             # 충돌 감지 후 게임 오버
             if self.snake.check_collision():
