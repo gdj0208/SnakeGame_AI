@@ -93,6 +93,17 @@ def train(pre_trained_weight = None):
     show_final_score(plot_scores, plot_mean_scores)
 
 def eval(pre_trained_weight=None):
+
+    if pre_trained_weight != None:
+        agent.load_model(pre_trained_weight)
+        print(f"Loaded pre-trained model: {pre_trained_weight}")
+
+    myGame.run(agent)
+
+
+
+if __name__ == "__main__":
+
     # 에이전트 초기화
     agent = Agent()
 
@@ -105,17 +116,8 @@ def eval(pre_trained_weight=None):
         screen=SCREEN
     )
 
-    if pre_trained_weight != None:
-        agent.load_model(pre_trained_weight)
-        print(f"Loaded pre-trained model: {pre_trained_weight}")
-
-    myGame.run(agent)
-
-
-
-if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-mode', type=str, default='eval', help='Mode to run the game: train or eval')
+    parser.add_argument('-mode', type=str, default='eval', help='Mode to run the game: train, eval or selfplay')
     parser.add_argument('-weight', type=str, default=None, help='Pre-trained model weight file name')
     args = parser.parse_args()
 
@@ -123,3 +125,5 @@ if __name__ == "__main__":
         train(args.weight)
     elif args.mode == 'eval':
         eval(args.weight)
+    elif args.mode == 'selfplay':
+        myGame.run()        
