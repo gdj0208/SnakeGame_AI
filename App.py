@@ -78,7 +78,7 @@ def train(pre_trained_weight = None):
                 # agent.reward = reward        
 
             if agent.n_games % 200 == 0:
-                agent.model.save(agent.n_games)
+                agent.model.save(agent.n_games, lr=agent.lr)
 
             # 학습 종료
             if agent.n_games >= 1000 :
@@ -93,7 +93,6 @@ def train(pre_trained_weight = None):
     show_final_score(plot_scores, plot_mean_scores)
 
 def eval(pre_trained_weight=None):
-
     if pre_trained_weight != None:
         agent.load_model(pre_trained_weight)
         print(f"Loaded pre-trained model: {pre_trained_weight}")
@@ -117,7 +116,19 @@ if __name__ == "__main__":
     )
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-mode', type=str, default='eval', help='Mode to run the game: train, eval or selfplay')
+    '''
+    -mode: 실행 모드 설정
+        - train: 에이전트 학습 모드
+        - eval: 에이전트 평가 모드
+        - selfplay: 에이전트가 스스로 게임을 플레이하는 모드
+    -weight: 사전 학습된 모델의 가중치 파일 이름 (eval 모드에서 사용)
+    
+    예시:
+    python App.py -mode train -weight model_weights.pth
+    python App.py -mode eval -weight model_weights.pth
+    python App.py -mode selfplay
+    '''
+    parser.add_argument('-mode', type=str, default='selfplay', help='Mode to run the game: train, eval or selfplay')
     parser.add_argument('-weight', type=str, default=None, help='Pre-trained model weight file name')
     args = parser.parse_args()
 

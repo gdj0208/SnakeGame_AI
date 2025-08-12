@@ -8,6 +8,7 @@ import numpy as np
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
 LR = 0.001
+EPSILON_BASE = 80
 
 class Agent:
     def __init__(self):
@@ -89,9 +90,9 @@ class Agent:
     def train_short_memory(self, state, action, reward, next_state, done):
         self.trainer.train_step(state, action, reward, next_state, done)
 
-    def get_action(self, state, n_games=80):
+    def get_action(self, state, n_games=EPSILON_BASE):
         # 엡실론-그리디 전략을 위한 엡실론값 설정
-        self.epsilon = 80 - n_games
+        self.epsilon = EPSILON_BASE - n_games
         
         # 직진, 좌회전, 우회전
         final_move = [0, 0, 0]

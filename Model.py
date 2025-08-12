@@ -20,7 +20,7 @@ class Snake_AI(nn.Module) :
         if not os.path.exists(model_folder_path):
             os.makedirs(model_folder_path)
         
-        file_name = os.path.join(model_folder_path,"lr_" +str(lr) +"_ver_"+str(file_name))
+        file_name = os.path.join(model_folder_path,"lr_" +str(float(lr)) +"_ver_"+str(file_name))
         torch.save(self.state_dict(), file_name+".pth")
 
 class Snake_Advanced_AI(nn.Module):
