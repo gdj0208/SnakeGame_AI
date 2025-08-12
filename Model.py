@@ -29,7 +29,7 @@ class Snake_Advanced_AI(nn.Module):
         self.linear1 = nn.Linear(input_size, hidden_size)
         self.ㅣn1 = nn.LayerNorm(hidden_size)
         self.dropout1 = nn.Dropout(dropout_p)
-
+        
         self.linear2 = nn.Linear(hidden_size, hidden_size)
         self.ln2 = nn.LayerNorm(hidden_size)
         self.dropout2 = nn.Dropout(dropout_p)
@@ -46,7 +46,6 @@ class Snake_Advanced_AI(nn.Module):
         x = self.dropout2(x)
         x = self.linear3(x)
         return x
-
 
     def save(self, file_name, lr=0):
         model_folder_path = './weights'
