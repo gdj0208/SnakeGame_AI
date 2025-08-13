@@ -7,8 +7,8 @@ import numpy as np
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
-LR = 0.001
-EPSILON_BASE = 80
+LR = 0.0001
+EPSILON_BASE = 120 # 80
 
 class Agent:
     def __init__(self):
@@ -16,8 +16,8 @@ class Agent:
         self.epsilon = 0
         self.gamma = 0.9 # 할인율
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Snake_AI(11, 256, 3) # 입력 11차원, 은닉층 256, 출력 3차원
-        # self.model = Snake_Advanced_AI(11, 256, 3)
+        # self.model = Snake_AI(11, 256, 3) # 입력 11차원, 은닉층 256, 출력 3차원
+        self.model = Snake_Advanced_AI(11, 256, 3)
         self.trainer = Trainer(self.model, lr=LR, gamma=self.gamma)
         self.record = 0
         self.reward = 0

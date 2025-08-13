@@ -48,7 +48,6 @@ def train(pre_trained_weight = None):
         final_move = agent.get_action(old_state, agent.n_games)
 
         # 3. 에이전트의 행동 실행 및 결과 얻기
-        # play_step 함수 내부에서 화면 그리기, clock.tick(), 이벤트 처리를 모두 수행해야 함.
         reward, done, score = myGame.play_step(action=final_move, n_games=agent.n_games)
         new_state = agent.get_state(myGame)
 
@@ -56,7 +55,7 @@ def train(pre_trained_weight = None):
         cnt += 1
 
         # 4. 짧은 메모리 학습
-        agent.train_short_memory(old_state, final_move, reward, new_state, done)
+        # agent.train_short_memory(old_state, final_move, reward, new_state, done)
         
         # 5. 경험 저장
         agent.remember(old_state, final_move, reward, new_state, done)
@@ -78,7 +77,7 @@ def train(pre_trained_weight = None):
                 # agent.reward = reward        
 
             if agent.n_games % 200 == 0:
-                agent.model.save(agent.n_games, lr=agent.lr)
+                agent.model.save(agent.n_games, lr=agent.trainer.lr)
 
             # 학습 종료
             if agent.n_games >= 1000 :

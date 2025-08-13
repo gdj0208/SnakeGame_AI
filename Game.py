@@ -171,7 +171,7 @@ class Game():
                     self.food.spawn()
                     if self.food.position not in self.snake.body:
                         break
-                    print("bug solved!")
+                    # print("bug solved!")
 
             # 충돌 감지 후 게임 오버
             if self.snake.check_collision():
