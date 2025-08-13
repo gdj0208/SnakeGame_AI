@@ -19,7 +19,7 @@ selfplay: 에이전트가 스스로 게임을 플레이하는 모드
 -weight: 사전 학습된 모델의 가중치 파일 이름
 (eval 모드, train 모드에서 사용 가능하며 train 모드에서 생략시 처음부터 학습을 시작합니다.)
 예시:
-
+```
 # 학습
 python App.py -mode train    # 새로운 가중치 학습
 python App.py -mode train -weight model_weights.pth    # 기존 가중치 재학습
@@ -28,7 +28,8 @@ python App.py -mode train -weight model_weights.pth    # 기존 가중치 재학
 python App.py -mode eval -weight model_weights.pth
 
 # 직접 게임 플레이
-python App.py -mode selfplay
+python App.py -mode selfplay```
+
 제공되는 사전 학습 모델
 프로젝트에는 미리 학습된 AI 모델 lr_0.0001_ver_1000.pth가 포함되어 있습니다. 이 모델은 1000번의 게임 학습을 통해 생성되었으며, 다음과 같은 성능을 보입니다.
 
