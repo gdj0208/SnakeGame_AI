@@ -130,6 +130,8 @@ if __name__ == "__main__":
     parser.add_argument('-mode', type=str, default='selfplay', help='Mode to run the game: train, eval or selfplay')
     parser.add_argument('-weight', type=str, default=None, help='Pre-trained model weight file name')
     args = parser.parse_args()
+    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit')
+    parser.print_help()
 
     if args.mode == 'train':
         train(args.weight)
